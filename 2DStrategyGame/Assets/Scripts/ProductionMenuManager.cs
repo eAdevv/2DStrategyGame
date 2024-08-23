@@ -1,10 +1,10 @@
-using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ScrollViewManager : MonoBehaviour, IBeginDragHandler, IDragHandler
+public class ProductionMenuManager : MonoBehaviour, IBeginDragHandler, IDragHandler
 {
     const float OUT_OF_BOUNDS_THRESHOLD = 40f;
     const float CHILD_WEIGHT = 125f;
@@ -24,7 +24,7 @@ public class ScrollViewManager : MonoBehaviour, IBeginDragHandler, IDragHandler
     {
         if (GetComponent<ScrollRect>() != null)
             scrollRect = GetComponent<ScrollRect>();
-        else 
+        else
             Debug.LogError("Scroll Rect missing.");
     }
     private void Start()
@@ -32,14 +32,14 @@ public class ScrollViewManager : MonoBehaviour, IBeginDragHandler, IDragHandler
         for (int i = 0; i < productionList.Length; i++)
         {
             PoolManager.Instance.CreatePool(productionList[i].ToString(), productionList[i], 1);
-            PoolManager.Instance.GetObject(productionList[i].ToString(), transform.position , Quaternion.identity);
+            PoolManager.Instance.GetObject(productionList[i].ToString(), transform.position, Quaternion.identity);
         }
 
         childCount = scrollRect.content.childCount;
         gridLayoutGroup = scrollRect.content.GetComponent<GridLayoutGroup>();
         height = Screen.height;
     }
-  
+
     void OnEnable()
     {
         scrollRect.onValueChanged.AddListener(ItemSwitcher);
@@ -75,7 +75,7 @@ public class ScrollViewManager : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     void ItemSwitcher(Vector2 value)
     {
-        if(gridLayoutGroup.IsActive()) gridLayoutGroup.enabled = false;
+        if (gridLayoutGroup.IsActive()) gridLayoutGroup.enabled = false;
 
         int currentItemIndex = isPositiveDrag ? childCount - 1 : 0;
         var currentItem = scrollRect.content.GetChild(currentItemIndex);
@@ -87,9 +87,9 @@ public class ScrollViewManager : MonoBehaviour, IBeginDragHandler, IDragHandler
         Vector2 newPosition = lastItem.position;
 
 
-        if (isPositiveDrag) 
+        if (isPositiveDrag)
             newPosition.y = lastItem.position.y - 125f * 1.5f + ITEM_SPACÝNG;
-        else 
+        else
             newPosition.y = lastItem.position.y + 125f * 1.5f - ITEM_SPACÝNG;
 
 
@@ -100,5 +100,4 @@ public class ScrollViewManager : MonoBehaviour, IBeginDragHandler, IDragHandler
     }
 
 
-  
 }
