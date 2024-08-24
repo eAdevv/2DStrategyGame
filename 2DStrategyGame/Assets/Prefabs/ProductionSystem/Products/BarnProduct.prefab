@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1079370641897474646}
   - component: {fileID: -2715587543803287033}
+  - component: {fileID: 3660066301817285362}
   - component: {fileID: 8085440484038755460}
-  m_Layer: 0
+  - component: {fileID: 5990389197455537055}
+  m_Layer: 7
   m_Name: BarnProduct
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,6 +48,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   productData: {fileID: 11400000, guid: 7fdc6be783b8f8243a2259201fb931cd, type: 2}
+--- !u!114 &3660066301817285362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371507608473739450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f45aa7b7948b659419199f34bc6a3140, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  informationData: {fileID: 11400000, guid: 0590213cd713ee24f960211715b2b62d, type: 2}
 --- !u!212 &8085440484038755460
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -98,3 +113,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &5990389197455537055
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371507608473739450}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.12, y: 5.12}
+  m_EdgeRadius: 0

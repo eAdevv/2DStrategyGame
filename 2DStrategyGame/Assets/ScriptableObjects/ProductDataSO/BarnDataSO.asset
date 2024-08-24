@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BarnDataSO
   m_EditorClassIdentifier: 
   Scale: {x: 0.425, y: 0.425, z: 0.425}
-  Weight: 0
-  Height: 0
+  Widht: 2
+  Height: 2

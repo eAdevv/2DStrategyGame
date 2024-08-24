@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PowerPlantDataSO
   m_EditorClassIdentifier: 
   Scale: {x: 0.5, y: 0.5, z: 0.5}
-  Weight: 0
-  Height: 0
+  Widht: 3
+  Height: 2

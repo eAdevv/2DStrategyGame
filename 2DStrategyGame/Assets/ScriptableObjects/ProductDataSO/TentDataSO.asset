@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TentDataSO
   m_EditorClassIdentifier: 
   Scale: {x: 0.25, y: 0.25, z: 0.25}
-  Weight: 1
+  Widht: 1
   Height: 1

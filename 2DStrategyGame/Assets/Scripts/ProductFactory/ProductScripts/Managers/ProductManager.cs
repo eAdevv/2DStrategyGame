@@ -16,7 +16,6 @@ public abstract class ProductManager : MonoBehaviour,IProduct
         transform.localScale = productData.Scale;
         productWidth = productData.Widht;
         productHeight = productData.Height;
-        buildObject = productData.BuildObject;
         isMouseBusy = true;
     }
     private void Update()
@@ -51,6 +50,8 @@ public abstract class ProductManager : MonoBehaviour,IProduct
                     {
                         isMouseBusy = false;
                         isPlaced = true;
+
+                        // Place Object 
                         gameObject.transform.position = CalculateCenterPosition(gridPosition, productWidth, productHeight);
                         AreInactive(gridPosition, productWidth, productHeight);
 

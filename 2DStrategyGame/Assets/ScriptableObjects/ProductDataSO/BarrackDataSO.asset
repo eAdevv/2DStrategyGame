@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BarrackDataSO
   m_EditorClassIdentifier: 
   Scale: {x: 0.85, y: 0.85, z: 0.85}
-  Weight: 0
-  Height: 0
+  Widht: 4
+  Height: 4
