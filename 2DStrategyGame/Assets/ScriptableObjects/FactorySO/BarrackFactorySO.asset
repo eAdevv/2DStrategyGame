@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6708a06c5dfc46f4bad52d2dfa4d3937, type: 3}
+  m_Name: BarrackFactorySO
+  m_EditorClassIdentifier: 
+  ProductFactory: {fileID: 7680581982245933686, guid: 298601e99c078574d8d123a33255b374, type: 3}

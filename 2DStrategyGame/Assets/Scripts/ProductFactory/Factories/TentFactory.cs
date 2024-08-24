@@ -1,0 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TentFactory : ProductFactory
+{
+    [SerializeField] private TentProduct _tentProduct;
+    public override IProduct CreateProduct(Vector2 position)
+    {
+        GameObject tentObject = Instantiate(_tentProduct.gameObject, position, Quaternion.identity);
+        TentProduct newTent = tentObject.GetComponent<TentProduct>();
+
+        newTent.Initialize();
+
+        return newTent;
+    }
+}

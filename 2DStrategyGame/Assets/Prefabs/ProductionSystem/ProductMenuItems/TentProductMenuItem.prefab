@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 45108925947420161}
   - component: {fileID: 2474181160290347114}
   - component: {fileID: -6655201957385643318}
+  - component: {fileID: 1028324494852037073}
   m_Layer: 5
-  m_Name: TentProduction
+  m_Name: TentProductMenuItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -90,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beca12739919f21498e33d7e3abefd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolKey: TentProduction (UnityEngine.GameObject)
+  poolKey: TentProductMenuItem (UnityEngine.GameObject)
 --- !u!114 &-6655201957385643318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,7 +114,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -135,3 +136,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1028324494852037073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530093749649718419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ea8f60ba20b8145a3d70f9109b6ba5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  factoryData: {fileID: 11400000, guid: c45038ee2e2b21b4a98d356f0d5a6696, type: 2}

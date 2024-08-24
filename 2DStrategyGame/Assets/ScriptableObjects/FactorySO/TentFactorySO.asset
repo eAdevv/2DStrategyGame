@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6708a06c5dfc46f4bad52d2dfa4d3937, type: 3}
+  m_Name: TentFactorySO
+  m_EditorClassIdentifier: 
+  ProductFactory: {fileID: -2165817558598546774, guid: 6781a116ee23c9245a91143cf23cc1d3, type: 3}
