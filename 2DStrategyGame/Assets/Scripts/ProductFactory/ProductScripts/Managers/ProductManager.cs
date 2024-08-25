@@ -64,13 +64,10 @@ public abstract class ProductManager : MonoBehaviour,IProduct
             }
             #endregion
         }
-        else
-        {
-            this.enabled = false;
-        }
-
+        
 
     }
+
 
     bool CanPlaceObject(Vector2Int startPosition, int width, int height)
     {

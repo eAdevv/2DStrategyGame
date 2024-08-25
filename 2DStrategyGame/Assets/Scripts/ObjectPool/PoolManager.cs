@@ -25,8 +25,6 @@ public class PoolManager : MonoSingleton<PoolManager>
             poolFreeDictionary.Add(poolKey, new Queue<ObjectInstance>());
             poolUsedDictionary.Add(poolKey, new Dictionary<int, ObjectInstance>());
 
-            Debug.Log(poolKey);
-
             GameObject poolParent;
 
             if (poolParents.ContainsKey(poolKey))

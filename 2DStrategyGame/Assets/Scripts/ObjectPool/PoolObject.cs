@@ -8,7 +8,7 @@ public class PoolObject : MonoBehaviour
 
     public virtual void OnAwake()
     {
-        Debug.Log("PoolObject Awake");
+        //Debug.Log("PoolObject Awake");
     }
 
     protected void Done()

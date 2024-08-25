@@ -43,16 +43,19 @@ public class BuildInformationController : MonoBehaviour
         infoBuildIcon.sprite = buildInformation.BuildIcon;
 
         if (buildInformation.CanPorduceUnit)
+        {
             unitPanel.SetActive(true);
-        else
-            unitPanel.SetActive(false);
+            SoldierController.Instance.CurrentBarrackProduct = buildInformation.GetComponent<BarrackProduct>();
+        }
+        else unitPanel.SetActive(false);
+
     }
 
     public void OnGetInformation(BuildInformationModel m_buildInformation)
     {
         buildInformation = m_buildInformation;
         buildData = m_buildInformation.informationData;
-        buildInformation.SetInformation(buildData.BuildName, buildData.BuildIcon , buildData.CanProduceUnit);
+        buildInformation.SetInformation(buildData.BuildName, buildData.BuildIcon , buildData.CanProduceUnit);     
     }
 
    
