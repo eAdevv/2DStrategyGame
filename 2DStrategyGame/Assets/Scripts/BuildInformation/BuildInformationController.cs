@@ -7,11 +7,11 @@ using UnityEngine.UI;
 public class BuildInformationController : MonoBehaviour
 {
     private BuildInformationModel buildInformation;
+    private BuildInformationData  buildData;
 
     [SerializeField] private TextMeshProUGUI infoBuildName;
     [SerializeField] private Image infoBuildIcon;
     [SerializeField] private GameObject unitPanel;
-    private BuildInformationData buildData;
 
   
     private void OnEnable()
@@ -45,7 +45,7 @@ public class BuildInformationController : MonoBehaviour
         if (buildInformation.CanPorduceUnit)
         {
             unitPanel.SetActive(true);
-            SoldierController.Instance.CurrentBarrackProduct = buildInformation.GetComponent<BarrackProduct>();
+            SoldierSpawnController.Instance.CurrentBarrackProduct = buildInformation.GetComponent<BarrackProduct>();
         }
         else unitPanel.SetActive(false);
 

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GridManager : MonoSingleton<GridManager>
 {
@@ -25,7 +27,6 @@ public class GridManager : MonoSingleton<GridManager>
         CenterCamera();
     }
 
-    
     public void CreateGrid()
     {
         Grid = new Node[gridWidth, gridHeight];
@@ -52,14 +53,29 @@ public class GridManager : MonoSingleton<GridManager>
         }
     }
 
+    // Calculate the center of the grid and place the camera in the center of the grid
     public void CenterCamera()
     {
         float m_gridWidth = gridWidth * cellSize;
         float m_gridHeight = gridHeight * cellSize;
 
-        // Calculate the center of the grid and place the camera in the center of the grid
         Vector3 gridCenter = new Vector3(m_gridWidth / 2f - cellSize / 2f, m_gridHeight / 2f - cellSize / 2f, -10f);
         Camera.main.transform.position = gridCenter;
+    }
+
+    // Checks whether the given position is within the borders and return Cell if position in borders.
+    public Node GetGridCellByPosition(Vector2Int gridPosition)
+    {
+        if (gridPosition.x >= 0 && gridPosition.x < GridWidth &&
+            gridPosition.y >= 0 && gridPosition.y < GridHeight)
+        {
+            var cell = Grid[gridPosition.x, gridPosition.y];
+            return cell;
+        }
+        else
+        {
+            return null;
+        }
     }
 
     

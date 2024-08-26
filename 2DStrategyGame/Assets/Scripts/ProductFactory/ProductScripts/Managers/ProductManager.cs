@@ -30,10 +30,11 @@ public abstract class ProductManager : MonoBehaviour,IProduct
             #endregion
 
             #region Raycast Operation For Check Area & Object Placement
-            // Checking Cell For Place Object
-            Vector2 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            RaycastHit2D hit = Physics2D.Raycast(mouseWorldPosition, Vector2.zero, Mathf.Infinity, GridManager.Instance.cellLayerMask);
+            // Checking Cell For Place Object
+
+
+            RaycastHit2D hit = RaycastManager.Instance.GetRaycastHit(GridManager.Instance.cellLayerMask);
 
             if (hit.collider != null)
             {
@@ -46,7 +47,7 @@ public abstract class ProductManager : MonoBehaviour,IProduct
                 if (CanPlaceObject(gridPosition, productWidth, productHeight))
                 {
                     gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-                    if (Input.GetMouseButtonDown(0) && isMouseBusy)
+                    if (Input.GetMouseButtonUp(0) && isMouseBusy)
                     {
                         isMouseBusy = false;
                         isPlaced = true;
@@ -64,10 +65,7 @@ public abstract class ProductManager : MonoBehaviour,IProduct
             }
             #endregion
         }
-        
-
     }
-
 
     bool CanPlaceObject(Vector2Int startPosition, int width, int height)
     {
@@ -77,14 +75,11 @@ public abstract class ProductManager : MonoBehaviour,IProduct
             {
                 Vector2Int currentPosition = new Vector2Int(startPosition.x + x, startPosition.y + y);
 
-                if (currentPosition.x >= 0 && currentPosition.x < GridManager.Instance.GridWidth &&
-                    currentPosition.y >= 0 && currentPosition.y < GridManager.Instance.GridHeight)
+                var cell = GridManager.Instance.GetGridCellByPosition(currentPosition);
+
+                if (cell != null && cell.IsUsed)
                 {
-                    var cell = GridManager.Instance.Grid[currentPosition.x, currentPosition.y];
-                    if (cell.IsUsed)
-                    {
-                        return false;
-                    }
+                    return false;
                 }
             }
         }

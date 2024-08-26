@@ -22,8 +22,10 @@ public class SoldierSpawner : MonoBehaviour
         if (soldier != null)
         {
             soldier.Initialize(data.Health, data.ID, data.Damage);
+
             Vector2Int closestPosition = GetClosestGridPosition(spawnPosition);
             SpawnSoldierOnGrid(closestPosition, soldierObj);
+
             //Instantiate(soldierObj, spawnPosition, Quaternion.identity);
         }
         else
@@ -48,20 +50,22 @@ public class SoldierSpawner : MonoBehaviour
     // It takes the grid coordinate of the cell it creates and establishes its relationship with the grid cell.
     private void SpawnSoldierOnGrid(Vector2Int gridPosition, GameObject soldierObj)
     {
-        if (gridPosition.x >= 0 && gridPosition.x < GridManager.Instance.GridWidth &&
-            gridPosition.y >= 0 && gridPosition.y < GridManager.Instance.GridHeight)
+
+        var cell = GridManager.Instance.GetGridCellByPosition(gridPosition);
+
+        if (cell != null)
         {
             Vector3 worldPos = new Vector3(
-                gridPosition.x * GridManager.Instance.CellSize,
-                gridPosition.y * GridManager.Instance.CellSize,
-                0
-            );
-            var cell = GridManager.Instance.Grid[gridPosition.x, gridPosition.y];
+                 gridPosition.x * GridManager.Instance.CellSize,
+                 gridPosition.y * GridManager.Instance.CellSize,
+                 0
+             );
 
             GameObject mySoldier = Instantiate(soldierObj, worldPos, Quaternion.identity);
             cell.IsUsed = true;
             mySoldier.transform.SetParent(cell.WorldObject.transform);
         }
+        
     }
 
 

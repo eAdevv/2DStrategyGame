@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class Soldier : MonoBehaviour
@@ -14,6 +15,11 @@ public abstract class Soldier : MonoBehaviour
         Health = health;
         SoldierID = id;
         Damage = damage;
+    }
+
+    public void Move()
+    {
+        Debug.Log(SoldierID + " Soldier selected.");
     }
     
 }

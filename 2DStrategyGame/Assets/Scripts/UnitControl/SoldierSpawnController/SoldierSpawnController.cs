@@ -4,7 +4,7 @@ using UnityEditor.Searcher;
 using UnityEngine;
 using System;
 
-public class SoldierController : MonoSingleton<SoldierController>
+public class SoldierSpawnController : MonoSingleton<SoldierSpawnController>
 {
     [SerializeField] private List<SoldierData> soldierDatas = new List<SoldierData>();
     [SerializeField] private List<GameObject> soldierPrefabs = new List<GameObject>();
