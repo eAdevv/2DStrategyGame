@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class SoldierSpawner : MonoBehaviour
@@ -23,10 +24,9 @@ public class SoldierSpawner : MonoBehaviour
         {
             soldier.Initialize(data.Health, data.ID, data.Damage);
 
+            // Convert closest cell to spawn point ,according to Barrack's spawnPoint object position.
             Vector2Int closestPosition = GetClosestGridPosition(spawnPosition);
             SpawnSoldierOnGrid(closestPosition, soldierObj);
-
-            //Instantiate(soldierObj, spawnPosition, Quaternion.identity);
         }
         else
         {
@@ -39,7 +39,6 @@ public class SoldierSpawner : MonoBehaviour
     // Uses the spawn point inside the active Barrack object
     private Vector2Int GetClosestGridPosition(Vector3 position)
     {
-        
         int gridX = Mathf.RoundToInt(position.x / GridManager.Instance.CellSize);
         int gridY = Mathf.RoundToInt(position.y / GridManager.Instance.CellSize);
 
@@ -50,7 +49,6 @@ public class SoldierSpawner : MonoBehaviour
     // It takes the grid coordinate of the cell it creates and establishes its relationship with the grid cell.
     private void SpawnSoldierOnGrid(Vector2Int gridPosition, GameObject soldierObj)
     {
-
         var cell = GridManager.Instance.GetGridCellByPosition(gridPosition);
 
         if (cell != null)
@@ -67,6 +65,4 @@ public class SoldierSpawner : MonoBehaviour
         }
         
     }
-
-
 }

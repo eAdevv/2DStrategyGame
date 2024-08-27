@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b1bc3e2e0da791478e42529158c6eaf, type: 3}
   m_Name: TentDataSO
   m_EditorClassIdentifier: 
-  Scale: {x: 0.25, y: 0.25, z: 0.25}
+  Scale: {x: 0.2, y: 0.2, z: 0.2}
   Widht: 1
   Height: 1

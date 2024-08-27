@@ -32,8 +32,6 @@ public abstract class ProductManager : MonoBehaviour,IProduct
             #region Raycast Operation For Check Area & Object Placement
 
             // Checking Cell For Place Object
-
-
             RaycastHit2D hit = RaycastManager.Instance.GetRaycastHit(GridManager.Instance.cellLayerMask);
 
             if (hit.collider != null)
@@ -63,7 +61,9 @@ public abstract class ProductManager : MonoBehaviour,IProduct
                     gameObject.GetComponent<SpriteRenderer>().color = Color.red;
                 }
             }
+
             #endregion
+
         }
     }
 
@@ -77,10 +77,9 @@ public abstract class ProductManager : MonoBehaviour,IProduct
 
                 var cell = GridManager.Instance.GetGridCellByPosition(currentPosition);
 
-                if (cell != null && cell.IsUsed)
-                {
+                if (cell == null || cell.IsUsed)
                     return false;
-                }
+
             }
         }
         return true; 
@@ -94,14 +93,12 @@ public abstract class ProductManager : MonoBehaviour,IProduct
             for (int y = 0; y < height; y++)
             {
                 // Calculate the current cell's position
-                Vector2Int currentPosition = new Vector2Int(startPosition.x + x, startPosition.y + y);
-
-                // Check if the current cell is within grid boundaries
                 // If the cell is within the grid boundaries, turn off the cell's availability and set its color.
-                if (currentPosition.x >= 0 && currentPosition.x < GridManager.Instance.GridWidth &&
-                    currentPosition.y >= 0 && currentPosition.y < GridManager.Instance.GridHeight)
+                Vector2Int currentPosition = new Vector2Int(startPosition.x + x, startPosition.y + y);
+                var cell = GridManager.Instance.GetGridCellByPosition(currentPosition);
+
+                if(cell != null)
                 {
-                    var cell = GridManager.Instance.Grid[currentPosition.x, currentPosition.y];
                     cell.WorldObject.GetComponent<Collider2D>().enabled = false;
                     cell.IsUsed = true;
                     SpriteRenderer cellSpriteRenderer = cell.WorldObject.GetComponent<SpriteRenderer>();
@@ -113,6 +110,7 @@ public abstract class ProductManager : MonoBehaviour,IProduct
                         cellSpriteRenderer.color = color;
                     }
                 }
+                
             }
         }
     }
@@ -131,6 +129,5 @@ public abstract class ProductManager : MonoBehaviour,IProduct
 
         return centerWorldPosition;
     }
-
 
 }

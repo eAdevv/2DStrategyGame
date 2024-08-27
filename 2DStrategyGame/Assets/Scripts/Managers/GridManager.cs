@@ -14,7 +14,7 @@ public class GridManager : MonoSingleton<GridManager>
     [SerializeField] private GameObject CellPrefab;
     public Node[,] Grid;
 
-    [Header("Cell Settings")]
+    [Header("Cell Mask")]
     public LayerMask cellLayerMask;
 
     public float CellSize { get => cellSize; set => cellSize = value; }
@@ -46,7 +46,8 @@ public class GridManager : MonoSingleton<GridManager>
                 GameObject cell = Instantiate(CellPrefab, worldPosition, Quaternion.identity);
 
                 cell.name = $"Cell {x},{y}";
-                Grid[x, y] = new Node(position);
+                bool isUsed = false;
+                Grid[x, y] = new Node(position,isUsed);
                 Grid[x, y].WorldObject = cell; 
                 cell.transform.parent = gameObject.transform;
             }
@@ -69,8 +70,7 @@ public class GridManager : MonoSingleton<GridManager>
         if (gridPosition.x >= 0 && gridPosition.x < GridWidth &&
             gridPosition.y >= 0 && gridPosition.y < GridHeight)
         {
-            var cell = Grid[gridPosition.x, gridPosition.y];
-            return cell;
+            return Grid[gridPosition.x, gridPosition.y];
         }
         else
         {
@@ -78,15 +78,31 @@ public class GridManager : MonoSingleton<GridManager>
         }
     }
 
-    
+    public Vector2Int GetGridWorldPosition(Vector3 worldPosition)
+    {
+        // Calculate grid cordinates.
+        int gridX = Mathf.FloorToInt(worldPosition.x / CellSize);
+        int gridY = Mathf.FloorToInt(worldPosition.y / CellSize);
+
+        gridX = Mathf.Clamp(gridX, 0, GridWidth - 1);
+        gridY = Mathf.Clamp(gridY, 0, GridHeight - 1);
+
+        return new Vector2Int(gridX, gridY);
+    }
 }
 public class Node
 {
     public Vector2Int Position { get; set; }
     public GameObject WorldObject { get; set; } 
     public bool IsUsed{ get; set; }
-    public Node(Vector2Int position)
+    public Node Parent { get; set; }
+    public int GCost { get; set; } 
+    public int HCost { get; set; } 
+    public int FCost => GCost + HCost; 
+
+    public Node(Vector2Int position , bool isUsed)
     {
         Position = position;
+        IsUsed = isUsed;
     }
 }
