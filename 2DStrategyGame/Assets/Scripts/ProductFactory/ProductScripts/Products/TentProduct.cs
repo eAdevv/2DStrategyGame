@@ -1,11 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class TentProduct : ProductManager
+
+public class TentProduct : Product
 {
-    public override void Initialize()
-    {
-        base.Initialize();
-    }
 }

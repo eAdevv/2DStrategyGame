@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildInformationView : MonoBehaviour
+public class ProductInformationView : MonoBehaviour
 {
     [SerializeField] private LayerMask buildLayerMask;
-    private BuildInformationController informationController;
+    private ProductInformationController informationController;
 
     private void Start()
     {
-        informationController = GetComponent<BuildInformationController>();
+        informationController = GetComponent<ProductInformationController>();
     }
     private void Update()
     {
@@ -19,7 +19,7 @@ public class BuildInformationView : MonoBehaviour
 
             if (hit.collider != null)
             {
-                informationController.OnGetInformation(hit.collider.GetComponent<BuildInformationModel>());
+                informationController.OnGetInformation(hit.collider.GetComponent<ProductInformationModel>());
             }
             else return;
         }

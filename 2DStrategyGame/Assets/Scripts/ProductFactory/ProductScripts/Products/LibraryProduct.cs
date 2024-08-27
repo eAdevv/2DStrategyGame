@@ -1,9 +1,5 @@
-using UnityEngine;
 
-public class LibraryProduct : ProductManager
+
+public class LibraryProduct : Product
 {
-    public override void Initialize()
-    {
-        base.Initialize();
-    }
 }

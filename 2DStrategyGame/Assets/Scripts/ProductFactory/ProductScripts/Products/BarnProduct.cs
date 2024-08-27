@@ -1,11 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class BarnProduct : ProductManager
+public class BarnProduct : Product
 {
-    public override void Initialize()
-    {
-        base.Initialize();
-    }
 }

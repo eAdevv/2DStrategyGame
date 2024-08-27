@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildInformationModel : MonoBehaviour
+public class ProductInformationModel : MonoBehaviour
 {
-    public BuildInformationData informationData;
+    public ProductInformationData informationData;
 
     private string buildName;
     private Sprite buildIcon;
@@ -20,7 +20,6 @@ public class BuildInformationModel : MonoBehaviour
         {
             buildName = informationData.BuildName;
             buildIcon = informationData.BuildIcon;
-            canPorduceUnit = informationData.CanProduceUnit;
         }
         else
         {
@@ -28,15 +27,11 @@ public class BuildInformationModel : MonoBehaviour
         }
     }
 
-    public void SetInformation(string m_buildName , Sprite m_buildIcon , bool m_canProduce) 
-    { 
+    public void SetInformation(string m_buildName, Sprite m_buildIcon, bool m_canProduce)
+    {
         buildName = m_buildName;
         buildIcon = m_buildIcon;
         canPorduceUnit = m_canProduce;
         EventManager.OnSetBuildInformation?.Invoke();
     }
-
-   
-
-
 }

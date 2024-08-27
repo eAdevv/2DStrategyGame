@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public abstract class ProductManager : MonoBehaviour,IProduct
+public class Product : MonoBehaviour
 {
     public ProductData productData;
 
@@ -25,7 +24,7 @@ public abstract class ProductManager : MonoBehaviour,IProduct
             #region Mouse Cursor Location
 
             Vector3 objectSize = GetComponent<Renderer>().bounds.size;
-            transform.position +=  Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane)) - transform.position  + new Vector3(objectSize.x / 3f , objectSize.y / 3f , 0);
+            transform.position += Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane)) - transform.position + new Vector3(objectSize.x / 3f, objectSize.y / 3f, 0);
 
             #endregion
 
@@ -82,7 +81,7 @@ public abstract class ProductManager : MonoBehaviour,IProduct
 
             }
         }
-        return true; 
+        return true;
     }
 
 
@@ -97,7 +96,7 @@ public abstract class ProductManager : MonoBehaviour,IProduct
                 Vector2Int currentPosition = new Vector2Int(startPosition.x + x, startPosition.y + y);
                 var cell = GridManager.Instance.GetGridCellByPosition(currentPosition);
 
-                if(cell != null)
+                if (cell != null)
                 {
                     cell.WorldObject.GetComponent<Collider2D>().enabled = false;
                     cell.IsUsed = true;
@@ -110,7 +109,7 @@ public abstract class ProductManager : MonoBehaviour,IProduct
                         cellSpriteRenderer.color = color;
                     }
                 }
-                
+
             }
         }
     }
@@ -129,5 +128,4 @@ public abstract class ProductManager : MonoBehaviour,IProduct
 
         return centerWorldPosition;
     }
-
 }

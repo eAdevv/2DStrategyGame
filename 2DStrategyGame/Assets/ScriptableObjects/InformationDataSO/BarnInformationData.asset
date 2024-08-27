@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46ae5aa5c1a87c445a46439a89ce3010, type: 3}
-  m_Name: BarnInformationDataSO
+  m_Script: {fileID: 11500000, guid: d0b0b8684d5ab4f4296b987597e93e12, type: 3}
+  m_Name: BarnInformationData
   m_EditorClassIdentifier: 
   BuildName: BARN
   BuildIcon: {fileID: 21300000, guid: 9e8d41bd44bfd5742af867a6235346c6, type: 3}
+  CanProduceUnit: 0

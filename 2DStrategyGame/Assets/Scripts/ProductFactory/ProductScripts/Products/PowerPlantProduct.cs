@@ -1,9 +1,4 @@
-using UnityEngine;
 
-public class PowerPlantProduct : ProductManager
+public class PowerPlantProduct : Product
 {
-    public override void Initialize()
-    {
-        base.Initialize();
-    }
 }

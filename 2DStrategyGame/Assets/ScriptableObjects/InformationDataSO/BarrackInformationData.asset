@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46ae5aa5c1a87c445a46439a89ce3010, type: 3}
-  m_Name: TentDataInformationSO
+  m_Script: {fileID: 11500000, guid: d0b0b8684d5ab4f4296b987597e93e12, type: 3}
+  m_Name: BarrackInformationData
   m_EditorClassIdentifier: 
-  BuildName: TENT
-  BuildIcon: {fileID: 21300000, guid: 27252cd8cc86d50419aa35ad2ef4f062, type: 3}
+  BuildName: BARRACK
+  BuildIcon: {fileID: 21300000, guid: b57de611eb4a22b4db685c7ae2c74b6b, type: 3}
+  CanProduceUnit: 1

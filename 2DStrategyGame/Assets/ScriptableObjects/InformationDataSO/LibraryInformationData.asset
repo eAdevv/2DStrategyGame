@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46ae5aa5c1a87c445a46439a89ce3010, type: 3}
-  m_Name: PowerPlantInformationDataSO
+  m_Script: {fileID: 11500000, guid: d0b0b8684d5ab4f4296b987597e93e12, type: 3}
+  m_Name: LibraryInformationData
   m_EditorClassIdentifier: 
-  BuildName: POWER PLANT
-  BuildIcon: {fileID: 21300000, guid: 557d482e3c7c4a341a1093cef7b5cef5, type: 3}
+  BuildName: LIBRARY
+  BuildIcon: {fileID: 21300000, guid: 80d9bb44649d51249bf6945d4c598042, type: 3}
+  CanProduceUnit: 0

@@ -8,4 +8,5 @@ public class ProductData : ScriptableObject
     public Vector3 Scale;
     public int Widht;
     public int Height;
+    public int Health;
 }

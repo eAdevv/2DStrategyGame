@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5892929151336537814}
   - component: {fileID: 5209086163638716412}
-  - component: {fileID: 2627104468763914886}
+  - component: {fileID: 8030789029787843872}
   - component: {fileID: 4188646662094714254}
   - component: {fileID: 3084795255965376827}
   m_Layer: 7
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   productData: {fileID: 11400000, guid: b1678ecc61e9e1041860065802e2bdf6, type: 2}
   spawnPoint: {fileID: 6904309738063700738}
---- !u!114 &2627104468763914886
+--- !u!114 &8030789029787843872
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,10 +59,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2207664760887206539}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f45aa7b7948b659419199f34bc6a3140, type: 3}
+  m_Script: {fileID: 11500000, guid: 04bbd28984ffcca469a211d7a83c8e07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  informationData: {fileID: 11400000, guid: 76dbb6cb6ca77e54c9626b9cc2dd0392, type: 2}
+  informationData: {fileID: 11400000, guid: 2551cc02a24b58f43bd6cf34e8ee9697, type: 2}
 --- !u!212 &4188646662094714254
 SpriteRenderer:
   m_ObjectHideFlags: 0

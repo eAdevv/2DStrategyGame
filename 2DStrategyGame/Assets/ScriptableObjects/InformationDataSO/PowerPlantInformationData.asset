@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46ae5aa5c1a87c445a46439a89ce3010, type: 3}
-  m_Name: BarrackInformationDataSO
+  m_Script: {fileID: 11500000, guid: d0b0b8684d5ab4f4296b987597e93e12, type: 3}
+  m_Name: PowerPlantInformationData
   m_EditorClassIdentifier: 
-  BuildName: BARRACK
-  BuildIcon: {fileID: 21300000, guid: b57de611eb4a22b4db685c7ae2c74b6b, type: 3}
-  CanProduceUnit: 1
+  BuildName: POWER PLANT
+  BuildIcon: {fileID: 21300000, guid: 557d482e3c7c4a341a1093cef7b5cef5, type: 3}
+  CanProduceUnit: 0

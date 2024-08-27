@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu( fileName = "NewBuildData", menuName = "BuildInformation/BuildData")]
-public class BuildInformationData : ScriptableObject
+[CreateAssetMenu(fileName = "NewInformationData", menuName = "ProductInformation/InformationData")]
+public class ProductInformationData : ScriptableObject
 {
     public string BuildName;
     public Sprite BuildIcon;
