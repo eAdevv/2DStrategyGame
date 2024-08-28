@@ -15,3 +15,4 @@ MonoBehaviour:
   Scale: {x: 0.85, y: 0.85, z: 0.85}
   Widht: 4
   Height: 4
+  Health: 100

@@ -1,4 +1,6 @@
 
 public class PowerPlantProduct : Product
 {
+
+   
 }

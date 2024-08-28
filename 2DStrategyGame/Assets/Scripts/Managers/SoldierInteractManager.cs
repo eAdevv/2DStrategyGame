@@ -27,12 +27,13 @@ public class SoldierInteractManager : MonoBehaviour
             if (hit.collider != null)
             {
                 Vector2Int targetPosition = GridManager.Instance.GetGridWorldPosition(hit.collider.transform.position);
-                managedSoldier.Move(targetPosition);
+                managedSoldier.Move(targetPosition,hit.collider.gameObject);
+
+               
             }
 
         }
 
     }
-
    
 }

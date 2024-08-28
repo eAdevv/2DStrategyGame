@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PathFinder : MonoSingleton<PathFinder>
@@ -11,13 +12,17 @@ public class PathFinder : MonoSingleton<PathFinder>
         Node startNode = GridManager.Instance.GetGridCellByPosition(start);
         Node endNode = GridManager.Instance.GetGridCellByPosition((end));
 
+        startNode.IsUsed = false;
+
+        if (endNode.IsUsed)
+        {
+            endNode = FindNearestAvailableNode(endNode);
+        }
 
         if (startNode == null || endNode == null || endNode.IsUsed)
         {
             return null;
         }
-
-        startNode.IsUsed = false;
 
         List<Node> openList = new List<Node>();
         HashSet<Node> closedList = new HashSet<Node>();
@@ -40,6 +45,7 @@ public class PathFinder : MonoSingleton<PathFinder>
 
             if (currentNode == endNode)
             {
+                endNode.IsUsed = true;
                 return RetracePath(startNode, endNode);
             }
 
@@ -68,6 +74,35 @@ public class PathFinder : MonoSingleton<PathFinder>
         }
 
         return null;
+    }
+
+    private Node FindNearestAvailableNode(Node node)
+    {
+        Queue<Node> nodesToCheck = new Queue<Node>();
+        HashSet<Node> checkedNodes = new HashSet<Node>();
+
+        nodesToCheck.Enqueue(node);
+        checkedNodes.Add(node);
+
+        while (nodesToCheck.Count > 0)
+        {
+            Node currentNode = nodesToCheck.Dequeue();
+
+            if (currentNode != null && !currentNode.IsUsed)
+            {
+                return currentNode;
+            }
+
+            foreach (Node neighbor in GetNeighbors(currentNode))
+            {
+                if (!checkedNodes.Contains(neighbor))
+                {
+                    nodesToCheck.Enqueue(neighbor);
+                    checkedNodes.Add(neighbor);
+                }
+            }
+        }
+        return null; 
     }
 
     private List<Node> GetNeighbors(Node node)

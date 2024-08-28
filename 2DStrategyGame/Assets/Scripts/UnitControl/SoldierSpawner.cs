@@ -22,7 +22,7 @@ public class SoldierSpawner : MonoBehaviour
 
         if (soldier != null)
         {
-            soldier.Initialize(data.Health, data.ID, data.Damage);
+            soldier.Initialize(data.Health, data.ID, data.Damage , data.AttackDelay);
 
             // Convert closest cell to spawn point ,according to Barrack's spawnPoint object position.
             Vector2Int closestPosition = GetClosestGridPosition(spawnPosition);

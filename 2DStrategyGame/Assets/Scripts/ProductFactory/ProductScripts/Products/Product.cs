@@ -1,20 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
-public class Product : MonoBehaviour
+using UnityEngine.UI;
+public abstract class Product : MonoBehaviour,IDamagable
 {
     public ProductData productData;
 
+    private Slider healthBar;
     private int productWidth;
     private int productHeight;
+
+    private int productHealth;
+    private int currentHealth;
+
     private GameObject buildObject;
     private bool isMouseBusy;
     private bool isPlaced;
-    public virtual void Initialize()
+
+    private List<Node> inactiveNodes = new List<Node>();
+    public void Initialize()
     {
         transform.localScale = productData.Scale;
+        productHealth = productData.Health;
         productWidth = productData.Widht;
         productHeight = productData.Height;
+
+        healthBar = GetComponentInChildren<Slider>();
+        healthBar.maxValue = productHealth;
+        healthBar.value = productHealth;
+        currentHealth = productHealth;
+
         isMouseBusy = true;
     }
     private void Update()
@@ -60,8 +77,30 @@ public class Product : MonoBehaviour
                     gameObject.GetComponent<SpriteRenderer>().color = Color.red;
                 }
             }
+            
 
             #endregion
+
+        }
+
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.value = currentHealth;
+
+        if (currentHealth <= 0)
+        {
+            foreach (Node cell in inactiveNodes.ToList())
+            {
+                cell.IsUsed = false;
+                cell.WorldObject.GetComponent<Collider2D>().enabled = true;
+                ColorAlphaChange(cell, 250);
+
+            }
+
+            Destroy(gameObject);
 
         }
     }
@@ -77,8 +116,9 @@ public class Product : MonoBehaviour
                 var cell = GridManager.Instance.GetGridCellByPosition(currentPosition);
 
                 if (cell == null || cell.IsUsed)
+                {
                     return false;
-
+                }
             }
         }
         return true;
@@ -100,14 +140,10 @@ public class Product : MonoBehaviour
                 {
                     cell.WorldObject.GetComponent<Collider2D>().enabled = false;
                     cell.IsUsed = true;
-                    SpriteRenderer cellSpriteRenderer = cell.WorldObject.GetComponent<SpriteRenderer>();
+                    ColorAlphaChange(cell, 90);
+                    inactiveNodes.Add(cell);
 
-                    if (cellSpriteRenderer != null)
-                    {
-                        Color color = cellSpriteRenderer.color;
-                        color.a = 90 / 250f;
-                        cellSpriteRenderer.color = color;
-                    }
+                   
                 }
 
             }
@@ -128,4 +164,17 @@ public class Product : MonoBehaviour
 
         return centerWorldPosition;
     }
+
+    void ColorAlphaChange(Node cell , int amount)
+    {
+        SpriteRenderer cellSpriteRenderer = cell.WorldObject.GetComponent<SpriteRenderer>();
+        if (cellSpriteRenderer != null)
+        {
+            Color color = cellSpriteRenderer.color;
+            color.a = amount / 250f;
+            cellSpriteRenderer.color = color;
+        }
+    }
+
+
 }
