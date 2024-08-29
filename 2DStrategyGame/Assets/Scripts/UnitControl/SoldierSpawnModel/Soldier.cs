@@ -25,11 +25,12 @@ public abstract class Soldier : MonoBehaviour, IDamagable
     #region Soldier Base
     private const float MOVE_SPEED = 20F;
 
-    public int Health;
-    public int SoldierID;
-    public int Damage;
-    public float AttackDelay;
-    public TextMeshProUGUI healthText;
+
+    [SerializeField] protected int Health;
+    [SerializeField] protected int SoldierID;
+    [SerializeField] protected int Damage;
+    [SerializeField] protected float AttackRate;
+    [SerializeField] protected TextMeshProUGUI healthText;
 
 
     #endregion
@@ -37,29 +38,40 @@ public abstract class Soldier : MonoBehaviour, IDamagable
     private void Start()
     {
         currentState = State.Idle;
-        healthText.text = Health.ToString();
     }
-
     public abstract void Initialize(int health, int id, int damage, float attackRate);
-    public  virtual IEnumerator Attack(GameObject targetObject)
+    public virtual IEnumerator Attack(GameObject targetObject)
     {
-        isAttacking = true;
         while (isAttacking)
         {
             if (targetObject != null)
             {
                 targetObject.GetComponent<IDamagable>().TakeDamage(Damage);
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds( 1f / AttackRate );
             }
             else
             {
                 isAttacking = false;
-                yield break;
+                break;
             }
         }
-        
     }
 
+    public virtual void TakeDamage(int damage)
+    {
+        Health -= damage;
+        healthText.text = Health.ToString();
+
+        if (Health <= 0) { Die(); }
+        
+    }
+    public void Die()
+    {
+        Vector2Int position = GridManager.Instance.GetGridWorldPosition(gameObject.transform.position);
+        var cell = GridManager.Instance.GetGridCellByPosition(position);
+        cell.IsUsed = false;
+        Destroy(this.gameObject);
+    }
 
     private void Update()
     {
@@ -84,23 +96,12 @@ public abstract class Soldier : MonoBehaviour, IDamagable
         }
     }
 
-    public void TakeDamage(int damage)
-    {
-        Health -= damage;
-        healthText.text = Health.ToString();
-        if (Health <= 0) 
-        {
-            Vector2Int position = GridManager.Instance.GetGridWorldPosition(gameObject.transform.position);
-            var cell = GridManager.Instance.GetGridCellByPosition(position);
-            cell.IsUsed = false;
-            Destroy(this.gameObject);
-        }
-    }
 
     public void Move(Vector2Int TargetPosition,GameObject interactObject)
     {
         if (currentState == State.Idle || currentState == State.Attack)
         {
+            isAttacking = false;
 
             // Current object position must be startPosition to use A* Algorithm.
             // So I take the world position of the grid where our object is located to send it to PathFinder. 
@@ -111,7 +112,9 @@ public abstract class Soldier : MonoBehaviour, IDamagable
             // TargetPosition = The clicked position we get from SoldierInteractManager.
             List<Node> path = PathFinder.Instance.FindPath(startPosition, TargetPosition);
 
-            StartCoroutine(MoveCoroutine(gameObject, path , interactObject));
+            // Start the movement if clicked anywhere other than the cell where the unit is located.
+            var m_GridPosition = GridManager.Instance.GetGridWorldPosition(gameObject.transform.position);
+            if(TargetPosition != m_GridPosition) StartCoroutine(MoveCoroutine(gameObject, path, interactObject));
         }
     }
 
@@ -120,7 +123,8 @@ public abstract class Soldier : MonoBehaviour, IDamagable
     {
         if (path != null)
         {
-            isAttacking = false;
+            path[0].IsUsed = false;
+
             isWalking = true;
             foreach (Node node in path)
             {
@@ -133,15 +137,19 @@ public abstract class Soldier : MonoBehaviour, IDamagable
                     yield return null;
                 }
             }
+
             isWalking = false;
 
-            if (interactObject.GetComponent<IDamagable>() != null)
+            // If the interacted object is a Unit or a Build, perform the attack operation.
+            // Update the status to Attacking.
+            if (interactObject.GetComponent<IDamagable>() != null && interactObject != this.gameObject)
+            {
+                isAttacking = true;
+                StopAllCoroutines();
                 StartCoroutine(Attack(interactObject));
+            }
+
         }
-
-
-        // Last grid cell must be used and Walk state change to Idle state.
-
 
     }
 }

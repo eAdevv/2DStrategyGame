@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 3725758902838368708}
+  - {fileID: 4201794033222847090}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50,8 +50,8 @@ MonoBehaviour:
   Health: 0
   SoldierID: 0
   Damage: 0
-  AttackDelay: 0
-  healthText: {fileID: 2092189125018548400}
+  AttackRate: 0
+  healthText: {fileID: 3807421229951514781}
 --- !u!212 &2863436684366706978
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -130,7 +130,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 5}
   m_EdgeRadius: 0
---- !u!1 &6102119837371655889
+--- !u!1 &5746835588401572059
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,10 +138,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3725758902838368708}
-  - component: {fileID: 6827536739129912602}
-  - component: {fileID: 2092189125018548400}
-  - component: {fileID: 4896899991449129281}
+  - component: {fileID: 4201794033222847090}
+  - component: {fileID: 610046642539088533}
+  - component: {fileID: 3807421229951514781}
+  - component: {fileID: 1395650027925146194}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -149,13 +149,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &3725758902838368708
+--- !u!224 &4201794033222847090
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6102119837371655889}
+  m_GameObject: {fileID: 5746835588401572059}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -166,24 +166,24 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.09, y: 1.8499966}
-  m_SizeDelta: {x: 4.446, y: 4.406}
+  m_AnchoredPosition: {x: 1.9, y: 2.2200031}
+  m_SizeDelta: {x: 3.843, y: 2.596}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &6827536739129912602
+--- !u!222 &610046642539088533
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6102119837371655889}
+  m_GameObject: {fileID: 5746835588401572059}
   m_CullTransparentMesh: 1
---- !u!114 &2092189125018548400
+--- !u!114 &3807421229951514781
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6102119837371655889}
+  m_GameObject: {fileID: 5746835588401572059}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -206,8 +206,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278255425
-  m_fontColor: {r: 0.25348186, g: 1, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -224,8 +224,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3
-  m_fontSizeBase: 3
+  m_fontSize: 1.5
+  m_fontSizeBase: 1.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -266,13 +266,13 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!223 &4896899991449129281
+--- !u!223 &1395650027925146194
 Canvas:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6102119837371655889}
+  m_GameObject: {fileID: 5746835588401572059}
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2

@@ -15,4 +15,4 @@ MonoBehaviour:
   Health: 10
   Damage: 5
   ID: 2
-  AttackDelay: 1.75
+  AttackRate: 0.5

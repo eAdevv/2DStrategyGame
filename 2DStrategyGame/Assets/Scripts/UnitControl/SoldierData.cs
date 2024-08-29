@@ -8,5 +8,5 @@ public class SoldierData : ScriptableObject
     public int Health;
     public int Damage;
     public int ID;
-    public float AttackDelay;
+    public float AttackRate;
 }

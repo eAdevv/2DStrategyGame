@@ -16,33 +16,33 @@ public abstract class Product : MonoBehaviour,IDamagable
     private int currentHealth;
 
     private GameObject buildObject;
-    private bool isMouseBusy;
     private bool isPlaced;
-
     private List<Node> inactiveNodes = new List<Node>();
+
+
     public void Initialize()
     {
         transform.localScale = productData.Scale;
         productHealth = productData.Health;
         productWidth = productData.Widht;
         productHeight = productData.Height;
+    }
 
+    private void Start()
+    {
         healthBar = GetComponentInChildren<Slider>();
         healthBar.maxValue = productHealth;
         healthBar.value = productHealth;
         currentHealth = productHealth;
-
-        isMouseBusy = true;
     }
     private void Update()
     {
-        if (!isPlaced)
+        if (!isPlaced )
         {
             #region Mouse Cursor Location
 
             Vector3 objectSize = GetComponent<Renderer>().bounds.size;
             transform.position += Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane)) - transform.position + new Vector3(objectSize.x / 3f, objectSize.y / 3f, 0);
-
             #endregion
 
             #region Raycast Operation For Check Area & Object Placement
@@ -61,15 +61,15 @@ public abstract class Product : MonoBehaviour,IDamagable
                 if (CanPlaceObject(gridPosition, productWidth, productHeight))
                 {
                     gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-                    if (Input.GetMouseButtonUp(0) && isMouseBusy)
+                    if (Input.GetMouseButtonUp(0))
                     {
-                        isMouseBusy = false;
+                        ProductionMenuManager.Instance.IsMouseBusy = false;
                         isPlaced = true;
 
                         // Place Object 
                         gameObject.transform.position = CalculateCenterPosition(gridPosition, productWidth, productHeight);
                         AreInactive(gridPosition, productWidth, productHeight);
-
+                   
                     }
                 }
                 else
@@ -97,9 +97,9 @@ public abstract class Product : MonoBehaviour,IDamagable
                 cell.IsUsed = false;
                 cell.WorldObject.GetComponent<Collider2D>().enabled = true;
                 ColorAlphaChange(cell, 250);
-
             }
 
+            EventManager.OnCloseBuildInformation?.Invoke();
             Destroy(gameObject);
 
         }

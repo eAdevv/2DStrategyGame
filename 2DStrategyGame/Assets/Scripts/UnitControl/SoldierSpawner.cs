@@ -15,14 +15,15 @@ public class SoldierSpawner : MonoBehaviour
     {
         EventManager.OnSoldierSpawner -= OnSoldierSpawner;
     }
+
+    // Creating new soldier and Initializing its datas.
     public void OnSoldierSpawner(GameObject soldierObj, SoldierData data , Vector3 spawnPosition)
     {
-        Debug.Log("Test : Soldier Spawner Event.");
         Soldier soldier = soldierObj.GetComponent<Soldier>();
 
         if (soldier != null)
         {
-            soldier.Initialize(data.Health, data.ID, data.Damage , data.AttackDelay);
+            soldier.Initialize(data.Health, data.ID, data.Damage, data.AttackRate);
 
             // Convert closest cell to spawn point ,according to Barrack's spawnPoint object position.
             Vector2Int closestPosition = GetClosestGridPosition(spawnPosition);

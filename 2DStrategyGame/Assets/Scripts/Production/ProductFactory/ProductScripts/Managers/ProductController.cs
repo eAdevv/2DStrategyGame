@@ -8,7 +8,6 @@ public class ProductController : MonoBehaviour
 {
     [SerializeField] public ProductFactoryHolder factoryData;
     private ProductFactory myFactory;
-
     private void Start()
     {
         myFactory = factoryData.ProductFactory;
@@ -16,9 +15,13 @@ public class ProductController : MonoBehaviour
     }
     private void GetProduct()
     {
-        // Produce the product from the factory in mouse position.
-        Vector3 myPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
-        myFactory.CreateProduct(myPosition);
+        if (!ProductionMenuManager.Instance.IsMouseBusy)
+        {
+            // Produce the product from the factory in mouse position.
+            Vector3 myPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
+            myFactory.CreateProduct(myPosition);
+            ProductionMenuManager.Instance.IsMouseBusy = true;
+        }
     }
 
     

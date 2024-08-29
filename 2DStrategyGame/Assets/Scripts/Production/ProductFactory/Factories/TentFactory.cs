@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class TentFactory : ProductFactory
 {
-    private TentProduct _tentProduct;
+    [SerializeField] private TentProduct _tentProduct;
     public override Product CreateProduct(Vector2 position)
     {
         GameObject tentObject = Instantiate(_tentProduct.gameObject, position, Quaternion.identity);
         TentProduct newTent = tentObject.GetComponent<TentProduct>();
 
         newTent.Initialize();
-
         return newTent;
     }
 }

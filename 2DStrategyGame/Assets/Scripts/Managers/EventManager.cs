@@ -6,6 +6,7 @@ using System;
 public static class EventManager 
 {
     public static Action OnSetBuildInformation;
+    public static Action OnCloseBuildInformation;
     public static Action<GameObject, SoldierData,Vector3> OnSoldierSpawner;
 
 }

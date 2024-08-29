@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BarnFactory : ProductFactory
 {
-    private BarnProduct _barnProduct;
+    [SerializeField] private BarnProduct _barnProduct;
     public override Product CreateProduct(Vector2 position)
     {
         GameObject barnObject = Instantiate(_barnProduct.gameObject, position, Quaternion.identity);

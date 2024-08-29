@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class FirstSoldier : Soldier
 {
-    public override void Initialize(int health, int id, int damage , float attackDelay)
+    public override void Initialize(int health, int id, int damage, float attackRate)
     {
-        Health = health;
-        SoldierID = id;
-        Damage = damage;
-        AttackDelay = attackDelay;
+        this.Health = health;
+        this.SoldierID = id;
+        this.Damage = damage;
+        this.AttackRate = attackRate;
+
+        healthText.text = Health.ToString();
     }
 
     public override IEnumerator Attack(GameObject targetObject)
     {
-        yield return base.Attack(targetObject);
+        //
+        //
+        Debug.Log("GENERAL ATTACKING");
+        return base.Attack(targetObject);
     }
+
 }

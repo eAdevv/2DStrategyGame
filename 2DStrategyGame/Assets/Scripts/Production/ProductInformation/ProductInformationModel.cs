@@ -8,11 +8,14 @@ public class ProductInformationModel : MonoBehaviour
 
     private string buildName;
     private Sprite buildIcon;
+    private bool isProductLive;
     private bool canPorduceUnit;
+
 
     public string BuildName { get => buildName; set => buildName = value; }
     public Sprite BuildIcon { get => buildIcon; set => buildIcon = value; }
     public bool CanPorduceUnit { get => canPorduceUnit; set => canPorduceUnit = value; }
+    public bool IsProductLive { get => isProductLive; set => isProductLive = value; }
 
     private void Awake()
     {

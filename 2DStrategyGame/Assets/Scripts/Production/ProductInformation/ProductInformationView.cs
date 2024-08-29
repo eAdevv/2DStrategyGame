@@ -5,7 +5,10 @@ using UnityEngine;
 public class ProductInformationView : MonoBehaviour
 {
     [SerializeField] private LayerMask buildLayerMask;
+    [SerializeField] private GameObject informationPanel;
     private ProductInformationController informationController;
+
+    public GameObject InformationPanel { get => informationPanel; set => informationPanel = value; }
 
     private void Start()
     {
@@ -21,7 +24,8 @@ public class ProductInformationView : MonoBehaviour
             {
                 informationController.OnGetInformation(hit.collider.GetComponent<ProductInformationModel>());
             }
-            else return;
+            else 
+                return;
         }
     }
 }

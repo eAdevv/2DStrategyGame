@@ -9,17 +9,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5106450757592140965}
+  - component: {fileID: 2474181160290347114}
+  - component: {fileID: 9079917454158087958}
   - component: {fileID: 8097556367891108902}
   - component: {fileID: 45108925947420161}
-  - component: {fileID: 2474181160290347114}
   - component: {fileID: -6655201957385643318}
-  - component: {fileID: 9079917454158087958}
   m_Layer: 5
   m_Name: LibraryProductMenuItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &5106450757592140965
 RectTransform:
@@ -41,6 +41,32 @@ RectTransform:
   m_AnchoredPosition: {x: -84, y: 335}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2474181160290347114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530093749649718419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beca12739919f21498e33d7e3abefd86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolKey: LibraryProductMenuItem (UnityEngine.GameObject)
+--- !u!114 &9079917454158087958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530093749649718419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ea8f60ba20b8145a3d70f9109b6ba5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  factoryData: {fileID: 11400000, guid: 6bbe8e6b3ea3db146b3daef6094ee75b, type: 2}
 --- !u!222 &8097556367891108902
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -79,19 +105,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2474181160290347114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530093749649718419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: beca12739919f21498e33d7e3abefd86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  poolKey: LibraryProductMenuItem (UnityEngine.GameObject)
 --- !u!114 &-6655201957385643318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,16 +149,3 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &9079917454158087958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530093749649718419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93ea8f60ba20b8145a3d70f9109b6ba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  factoryData: {fileID: 11400000, guid: 6bbe8e6b3ea3db146b3daef6094ee75b, type: 2}

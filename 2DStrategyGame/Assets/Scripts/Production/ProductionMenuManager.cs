@@ -4,22 +4,26 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ProductionMenuManager : MonoBehaviour, IBeginDragHandler, IDragHandler
+public class ProductionMenuManager : MonoSingleton<ProductionMenuManager>, IBeginDragHandler, IDragHandler
 {
-    const float OUT_OF_BOUNDS_THRESHOLD = 40f;
-    const float CHILD_WEIGHT = 125f;
+    const float OUT_OF_BOUNDS_THRESHOLD = 0.5f;
     const float CHILD_HEIGHT = 125f;
-    const float ITEM_SPACÝNG = 15f;
+    const float ITEM_SPACÝNG = 12f;
 
     private Vector2 lastDragPosition;
     private bool isPositiveDrag;
     private int childCount;
-    private float height;
+    private float screenHeight;
+    private bool isMouseBusy;
 
     ScrollRect scrollRect;
     GridLayoutGroup gridLayoutGroup;
 
     [SerializeField] private GameObject[] productionList;
+    [SerializeField] private GameObject viewPort;
+
+    public bool IsMouseBusy { get => isMouseBusy; set => isMouseBusy = value; }
+
     private void Awake()
     {
         if (GetComponent<ScrollRect>() != null)
@@ -37,7 +41,8 @@ public class ProductionMenuManager : MonoBehaviour, IBeginDragHandler, IDragHand
 
         childCount = scrollRect.content.childCount;
         gridLayoutGroup = scrollRect.content.GetComponent<GridLayoutGroup>();
-        height = Screen.height;
+        screenHeight = Screen.height;
+       
     }
 
     void OnEnable()
@@ -62,17 +67,20 @@ public class ProductionMenuManager : MonoBehaviour, IBeginDragHandler, IDragHand
         lastDragPosition = newPosition;
     }
 
+    // Checks the position of the object in the scene according to the specified threshold value.
     bool ReachedThreshold(Transform item)
     {
-        float up_Threshold = transform.position.y + height * 0.5f + OUT_OF_BOUNDS_THRESHOLD;
-        float down_Threshold = transform.position.y - height * 0.5f - OUT_OF_BOUNDS_THRESHOLD;
+        float up_Threshold = viewPort.transform.position.y + screenHeight * OUT_OF_BOUNDS_THRESHOLD;
+        float down_Threshold = viewPort.transform.position.y - screenHeight * OUT_OF_BOUNDS_THRESHOLD;
 
         if (isPositiveDrag)
-            return item.position.y - CHILD_WEIGHT * 0.5f > up_Threshold;
+            return item.position.y - CHILD_HEIGHT * 0.5f > up_Threshold;
         else
-            return item.position.y + CHILD_WEIGHT * 0.5f < down_Threshold;
+            return item.position.y + CHILD_HEIGHT * 0.5f < down_Threshold;
     }
 
+
+    // According to the direction of interaction, it deactivates the top object from the pool and recreates it at the bottom.
     void ItemSwitcher(Vector2 value)
     {
         if (gridLayoutGroup.IsActive()) gridLayoutGroup.enabled = false;
@@ -88,9 +96,9 @@ public class ProductionMenuManager : MonoBehaviour, IBeginDragHandler, IDragHand
 
 
         if (isPositiveDrag)
-            newPosition.y = lastItem.position.y - 125f * 1.5f + ITEM_SPACÝNG;
+            newPosition.y = lastItem.position.y - 125 * 1.5f + ITEM_SPACÝNG;
         else
-            newPosition.y = lastItem.position.y + 125f * 1.5f - ITEM_SPACÝNG;
+            newPosition.y = lastItem.position.y + 125 * 1.5f - ITEM_SPACÝNG;
 
 
         PoolManager.Instance.ReturnObjectToQueue(currentItem.gameObject);
