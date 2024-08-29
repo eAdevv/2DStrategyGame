@@ -123,7 +123,7 @@ public abstract class Soldier : MonoBehaviour, IDamagable
     {
         if (path != null)
         {
-            path[0].IsUsed = false;
+            if(path.Count >= 1) path[0].IsUsed = false;
 
             isWalking = true;
             foreach (Node node in path)
