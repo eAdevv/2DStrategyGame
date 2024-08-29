@@ -131,7 +131,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 45632898}
-  - component: {fileID: 45632902}
   - component: {fileID: 45632901}
   - component: {fileID: 45632900}
   - component: {fileID: 45632899}
@@ -226,7 +225,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 993b2e1e26c01214981fb15c0be0b20d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 95629edfd2eb3584f95c3a42e5ed8a31, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -244,20 +243,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 45632897}
   m_CullTransparentMesh: 1
---- !u!114 &45632902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 45632897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3142817a4f385d45a70455ff7f2e3be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  atlas: {fileID: 4343727234628468602, guid: a429916832034d54f8086123c425fdcf, type: 2}
-  spriteName: SoldierThreeIcon
 --- !u!1 &104230155
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,7 +323,6 @@ GameObject:
   - component: {fileID: 290206261}
   - component: {fileID: 290206260}
   - component: {fileID: 290206259}
-  - component: {fileID: 290206262}
   m_Layer: 5
   m_Name: Soldier_1_Button
   m_TagString: Untagged
@@ -430,7 +414,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1d6af0dc2a6b06d4b9e84fccadc6bc1b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 86594a688f6be8e44b8768c6265f6389, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -448,20 +432,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290206257}
   m_CullTransparentMesh: 1
---- !u!114 &290206262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 290206257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3142817a4f385d45a70455ff7f2e3be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  atlas: {fileID: 4343727234628468602, guid: a429916832034d54f8086123c425fdcf, type: 2}
-  spriteName: SoldierOneIcon
 --- !u!1 &344588015
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,7 +444,6 @@ GameObject:
   - component: {fileID: 344588019}
   - component: {fileID: 344588018}
   - component: {fileID: 344588017}
-  - component: {fileID: 344588020}
   m_Layer: 5
   m_Name: Soldier_2_Button
   m_TagString: Untagged
@@ -566,7 +535,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: edff7f912d979be459a3340744237751, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f13e698d9ca47e45a2c88ff12fd97da, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -584,20 +553,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 344588015}
   m_CullTransparentMesh: 1
---- !u!114 &344588020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344588015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3142817a4f385d45a70455ff7f2e3be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  atlas: {fileID: 4343727234628468602, guid: a429916832034d54f8086123c425fdcf, type: 2}
-  spriteName: SoldierTwoIcon
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2194,7 +2149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1831872349
 RectTransform:
   m_ObjectHideFlags: 0

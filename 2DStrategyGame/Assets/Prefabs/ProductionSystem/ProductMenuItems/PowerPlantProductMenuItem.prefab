@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5106450757592140965}
   - component: {fileID: 2474181160290347114}
-  - component: {fileID: 5745255012476876115}
   - component: {fileID: -5240819494198278723}
   - component: {fileID: 8097556367891108902}
   - component: {fileID: 45108925947420161}
@@ -55,20 +54,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poolKey: PowerPlantProductMenuItem (UnityEngine.GameObject)
---- !u!114 &5745255012476876115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530093749649718419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3142817a4f385d45a70455ff7f2e3be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  atlas: {fileID: 4343727234628468602, guid: a429916832034d54f8086123c425fdcf, type: 2}
-  spriteName: PowerPlantIcon
 --- !u!114 &-5240819494198278723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,7 +95,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 557d482e3c7c4a341a1093cef7b5cef5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
