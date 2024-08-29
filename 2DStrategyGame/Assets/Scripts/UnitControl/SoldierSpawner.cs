@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SoldierSpawner : MonoBehaviour
 {
-
+    public GameObject container;
     private void OnEnable()
     {
         EventManager.OnSoldierSpawner += OnSoldierSpawner;
@@ -61,8 +61,9 @@ public class SoldierSpawner : MonoBehaviour
              );
 
             GameObject mySoldier = Instantiate(soldierObj, worldPos, Quaternion.identity);
+            mySoldier.transform.SetParent(container.transform);
             cell.IsUsed = true;
-            mySoldier.transform.SetParent(cell.WorldObject.transform);
+            //mySoldier.transform.SetParent(cell.WorldObject.transform);
         }
         
     }
