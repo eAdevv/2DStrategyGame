@@ -7,7 +7,7 @@ public class ProductionMenuManager : MonoSingleton<ProductionMenuManager>, IBegi
 {
     const float OUT_OF_BOUNDS_THRESHOLD = 0.5f;
     const float CHILD_HEIGHT = 125f;
-    const float ITEM_SPACÝNG = 12f;
+    const float ITEM_SPACING = 12f;
 
     private Vector2 lastDragPosition;
     private bool isPositiveDrag;
@@ -95,9 +95,9 @@ public class ProductionMenuManager : MonoSingleton<ProductionMenuManager>, IBegi
 
 
         if (isPositiveDrag)
-            newPosition.y = lastItem.position.y - 125 * 1.5f + ITEM_SPACÝNG;
+            newPosition.y = lastItem.position.y - 125 * 1.5f + ITEM_SPACING;
         else
-            newPosition.y = lastItem.position.y + 125 * 1.5f - ITEM_SPACÝNG;
+            newPosition.y = lastItem.position.y + 125 * 1.5f - ITEM_SPACING;
 
 
         PoolManager.Instance.ReturnObjectToQueue(currentItem.gameObject);
